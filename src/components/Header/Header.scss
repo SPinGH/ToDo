@@ -1,0 +1,53 @@
+.navigation {
+    flex: 0 0 auto;
+    padding: 30px 10px;
+    background-color: #fff;
+    box-shadow: 20px 0 30px #fff;
+}
+.nav {
+    width: 100px;
+    // .nav__links
+    &__links {
+        width: 100px;
+        overflow: hidden;
+        position: fixed;
+    }
+
+    // .nav__link
+    &__link {
+        display: block;
+        color: #ccc;
+        text-align: center;
+        margin: 0px 0px 15px 0px;
+        transition-property: transform, color;
+        transition-duration: 0.3s;
+
+        &.active {
+            transform: translateX(5px);
+            color: #333;
+            .nav__img {
+                fill: #333;
+            }
+            path {
+                stroke: #333;
+            }
+        }
+
+        &:hover {
+            transform: translateX(5px);
+        }
+    }
+
+    // .nav__img
+    &__img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0px auto 5px auto;
+        transition: fill 0.3s;
+
+        path {
+            transition: stroke 0.3s;
+        }
+    }
+}

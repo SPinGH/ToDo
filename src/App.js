@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-function App() {
+import Header from './components/Header/Header';
+
+function App({ children }) {
   return (
-    <div>
-    </div>
+    <Fragment>
+      <Header />
+      {children}
+    </Fragment>
   );
 }
 
