@@ -1,0 +1,166 @@
+.todo {
+    width: 45%;
+    // .todo__categories
+    &__categories {
+        margin: 0px 0px 20px 0px;
+        display: flex;
+    }
+
+    // .todo__filter
+    &__filter {
+        display: flex;
+        margin: 0px 0px 10px 0px;
+    }
+
+    // .todo__filter-item
+    &__filter-item {
+        outline: none;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+        margin: 0px 10px 0px 0px;
+        cursor: pointer;
+
+        &.active {
+            background-color: #ccc;
+            color: #fff;
+        }
+    }
+
+    // .todo__input
+    &__input {
+        border-top: 2px solid #ccc;
+        display: flex;
+        margin: 0px 0px 10px 0px;
+        input {
+            flex: 1 1 auto;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            padding: 5px;
+            outline: none;
+        }
+        button {
+            flex: 0 0 38px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+            outline: none;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    // .todo__list
+    &__list {
+    }
+
+    // .todo__task
+    &__task {
+        position: relative;
+        background-color: #fff;
+        border-radius: 20px;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin: 0px 0px 10px 0px;
+        &::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        &.varia::after {
+            background-color: #e5768c;
+        }
+        &.work::after {
+            background-color: #71dc79;
+        }
+
+        input {
+            display: none;
+
+            &:checked + label::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                transform: translateY(-50%);
+                background-color: #eee;
+            }
+
+            &:checked + label {
+                color: #ccc;
+                //text-decoration: line-through;
+            }
+        }
+        label {
+            line-height: 4;
+            width: 100%;
+            position: relative;
+            padding: 0px 0px 0px 60px;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                transform: translateY(-50%);
+                border: 2px solid #ccc;
+            }
+        }
+    }
+}
+.category-todo {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 0px 0px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+    // .categories-todo__icon
+    &__icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 0px 0px 10px 0px;
+        &.varia {
+            background-color: #e5768c;
+        }
+        &.work {
+            background-color: #71dc79;
+        }
+    }
+
+    // .categories-todo__tasks
+    &__tasks {
+        font-size: 14px;
+    }
+
+    // .categories-todo__name
+    &__name {
+        font-size: 20px;
+    }
+}

@@ -6,7 +6,9 @@ function App({ children }) {
   return (
     <Fragment>
       <Header />
-      {children}
+      <main className="main">
+        {children}
+      </main>
     </Fragment>
   );
 }
