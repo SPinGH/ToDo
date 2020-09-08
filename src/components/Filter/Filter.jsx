@@ -24,9 +24,9 @@ function Filter({ className, activeFilter, onClick }) {
         className,
     )
     return (
-        <div className={className}>
+        <div className={classes}>
             {Buttons.map((btn) => (
-                <button className={`filter__item ${activeFilter == btn.id ? "active" : ""}`}
+                <button className={`filter__item ${activeFilter === btn.id ? "active" : ""}`}
                     key={btn.id}
                     onClick={() => onClick(btn.id)}>{btn.text}</button>
             ))}

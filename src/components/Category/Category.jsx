@@ -13,15 +13,15 @@ function declOfNum(n, text_forms) {
 
 function Category({ count, category, color, className, active, onClick }) {
     const classes = classNames(
-        "category-todo",
+        "category",
         className,
         { active },
     );
     return (
         <div className={classes} onClick={onClick}>
-            <div className="category-todo__icon" style={{ backgroundColor: color }}></div>
-            <div className="category-todo__tasks">{count} {declOfNum(count, ["Задача", "Задачи", "Задач"])}</div>
-            <div className="category-todo__name">{category}</div>
+            <div className="category__icon" style={{ backgroundColor: color }}></div>
+            <div className="category__tasks">{count} {declOfNum(count, ["Задача", "Задачи", "Задач"])}</div>
+            <div className="category__name">{category}</div>
         </div>
     )
 }
