@@ -4,6 +4,7 @@ import './Tasks.scss';
 
 import Categories from '../../components/Categories/Categories';
 import Filter from '../../components/Filter/Filter';
+import Input from '../../components/Input/Input';
 
 function Tasks() {
     const [activeCategory, setCategory] = useState(null);
@@ -20,7 +21,7 @@ function Tasks() {
                 onClick={setFilter} />
 
             <div className="todo__input">
-                <input type="text" placeholder="placeholder" />
+                <Input type="text" placeholder="placeholder" />
                 <button>+</button>
             </div>
             <div className="todo__list">
