@@ -106,6 +106,7 @@ html {
 body {
   line-height: 1;
   height: 100%;
+  font-family: "BalsamiqSans", Arial, serif;
 }
 ol,
 ul {
@@ -144,4 +145,40 @@ a {
 .main {
   flex: 1 1 auto;
   padding: 30px;
+}
+
+@font-face {
+  font-family: "BalsamiqSans";
+  font-display: swap;
+  src: url("./assets/fonts/BalsamiqSans-Bold.woff") format("woff"),
+    url("./assets/fonts/BalsamiqSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BalsamiqSans";
+  font-display: swap;
+  src: url("./assets/fonts/BalsamiqSans-BoldItalic.woff") format("woff"),
+    url("./assets/fonts/BalsamiqSans-BoldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BalsamiqSans";
+  font-display: swap;
+  src: url("./assets/fonts/BalsamiqSans-Italic.woff") format("woff"),
+    url("./assets/fonts/BalsamiqSans-Italic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BalsamiqSans";
+  font-display: swap;
+  src: url("./assets/fonts/BalsamiqSans-Regular.woff") format("woff"),
+    url("./assets/fonts/BalsamiqSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
