@@ -5,10 +5,44 @@ import './Tasks.scss';
 import Categories from '../../components/Categories/Categories';
 import Filter from '../../components/Filter/Filter';
 import Input from '../../components/Input/Input';
+import Task from '../../components/Task/Task';
+
+const TASKS = [
+    {
+        id: 0,
+        text: "lorem ipsum dolor set.",
+        category: 0,
+        isCompleted: false,
+    },
+    {
+        id: 1,
+        text: "lorem ipsum dolor set.",
+        category: 0,
+        isCompleted: false,
+    },
+    {
+        id: 2,
+        text: "lorem ipsum dolor set.",
+        category: 1,
+        isCompleted: false,
+    },
+];
 
 function Tasks() {
     const [activeCategory, setCategory] = useState(null);
     const [activeFilter, setFilter] = useState("all");
+    const [tasks, setTasks] = useState(TASKS);
+    const toggleTask = (id) => {
+        setTasks(
+            tasks.map((task) => {
+                if (task.id === id) {
+                    return { ...task, isCompleted: !task.isCompleted };
+                }
+                return task;
+            })
+        )
+
+    }
     return (
         <div className="todo">
 
@@ -24,19 +58,17 @@ function Tasks() {
                 <Input type="text" placeholder="placeholder" />
                 <button>+</button>
             </div>
+
             <div className="todo__list">
-                <div className="todo__task varia">
-                    <input type="checkbox" id="check1" />
-                    <label htmlFor="check1">Lorem ipsum dolor sit.</label>
-                </div>
-                <div className="todo__task varia">
-                    <input type="checkbox" id="check2" />
-                    <label htmlFor="check2">Lorem ipsum dolor sit.</label>
-                </div>
-                <div className="todo__task work">
-                    <input type="checkbox" id="check3" />
-                    <label htmlFor="check3">Lorem ipsum dolor sit.</label>
-                </div>
+                {tasks.map(({ id, text, category, isCompleted }) => (
+                    <Task
+                        key={id}
+                        id={id}
+                        text={text}
+                        color="red"
+                        isCompleted={isCompleted}
+                        onClick={toggleTask} />
+                ))}
             </div>
         </div>
     )
