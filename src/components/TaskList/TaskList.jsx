@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './TaskList.scss';
 
@@ -23,6 +24,18 @@ function TaskList({ className, tasks, onClick }) {
             ))}
         </div>
     );
+}
+
+TaskList.propTypes = {
+    className: PropTypes.string,
+    tasks: PropTypes.array,
+    onClick: PropTypes.func,
+}
+
+TaskList.defaultProps = {
+    className: "",
+    tasks: [],
+    onClick: () => { },
 }
 
 export default TaskList;

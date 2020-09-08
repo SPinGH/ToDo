@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './Category.scss';
 
@@ -11,7 +12,7 @@ function declOfNum(n, text_forms) {
     return text_forms[2];
 }
 
-function Category({ count, category, color, className, active, onClick }) {
+function Category({ count, name, color, className, active, onClick }) {
     const classes = classNames(
         "category",
         className,
@@ -21,9 +22,27 @@ function Category({ count, category, color, className, active, onClick }) {
         <div className={classes} onClick={onClick}>
             <div className="category__icon" style={{ backgroundColor: color }}></div>
             <div className="category__tasks">{count} {declOfNum(count, ["Задача", "Задачи", "Задач"])}</div>
-            <div className="category__name">{category}</div>
+            <div className="category__name">{name}</div>
         </div>
     )
+}
+
+Category.propTypes = {
+    className: PropTypes.string,
+    count: PropTypes.number,
+    name: PropTypes.string,
+    color: PropTypes.string,
+    active: PropTypes.bool,
+    onClick: PropTypes.func,
+}
+
+Category.defaultProps = {
+    className: "",
+    count: 0,
+    name: "Зазное",
+    color: "#ccc",
+    active: false,
+    onClick: () => { },
 }
 
 export default Category;
