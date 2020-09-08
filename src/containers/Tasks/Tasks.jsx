@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Tasks.scss';
 
 import Category from '../../components/Category/Category';
+import Filter from '../../components/Filter/Filter';
 
 const categories = [
     {
@@ -27,24 +28,23 @@ const categories = [
 
 function Tasks() {
     const [activeCategory, setCategory] = useState(null);
+    const [activeFilter, setFilter] = useState("all");
     return (
         <div className="todo">
             <div className="todo__categories">
-                {categories.map((category) => (
+                {categories.map(({ id, count, category, color }) => (
                     <Category className="todo__category"
-                        key={category.id}
-                        count={category.count}
-                        category={category.category}
-                        color={category.color}
-                        onClick={() => setCategory(activeCategory === category.id ? null : category.id)}
-                        active={activeCategory === category.id} />
+                        key={id}
+                        count={count}
+                        category={category}
+                        color={color}
+                        onClick={() => setCategory(activeCategory === id ? null : id)}
+                        active={activeCategory === id} />
                 ))}
             </div>
-            <div className="todo__filter">
-                <button className="todo__filter-item active">Все</button>
-                <button className="todo__filter-item">Завершенные</button>
-                <button className="todo__filter-item">Активные</button>
-            </div>
+            <Filter className="todo__filter"
+                activeFilter={activeFilter}
+                onClick={setFilter} />
             <div className="todo__input">
                 <input type="text" placeholder="placeholder" />
                 <button>+</button>

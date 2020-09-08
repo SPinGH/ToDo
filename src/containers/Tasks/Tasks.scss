@@ -12,22 +12,6 @@
         margin: 0px 0px 10px 0px;
     }
 
-    // .todo__filter-item
-    &__filter-item {
-        outline: none;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 10px;
-        background-color: #fff;
-        margin: 0px 10px 0px 0px;
-        cursor: pointer;
-
-        &.active {
-            background-color: #ccc;
-            color: #fff;
-        }
-    }
-
     // .todo__input
     &__input {
         border-top: 2px solid #ccc;
