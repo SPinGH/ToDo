@@ -5,7 +5,7 @@ import './Tasks.scss';
 import Categories from '../../components/Categories/Categories';
 import Filter from '../../components/Filter/Filter';
 import Input from '../../components/Input/Input';
-import Task from '../../components/Task/Task';
+import TaskList from '../../components/TaskList/TaskList';
 
 const TASKS = [
     {
@@ -59,17 +59,11 @@ function Tasks() {
                 <button>+</button>
             </div>
 
-            <div className="todo__list">
-                {tasks.map(({ id, text, category, isCompleted }) => (
-                    <Task
-                        key={id}
-                        id={id}
-                        text={text}
-                        color="red"
-                        isCompleted={isCompleted}
-                        onClick={toggleTask} />
-                ))}
-            </div>
+            <TaskList
+                className="todo__list"
+                tasks={tasks}
+                onClick={toggleTask}
+            />
         </div>
     )
 }
