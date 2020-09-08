@@ -2,49 +2,23 @@ import React, { useState } from 'react';
 
 import './Tasks.scss';
 
-import Category from '../../components/Category/Category';
+import Categories from '../../components/Categories/Categories';
 import Filter from '../../components/Filter/Filter';
-
-const categories = [
-    {
-        id: 1,
-        count: 3,
-        category: "Разное",
-        color: "#e5768c"
-    },
-    {
-        id: 2,
-        count: 5,
-        category: "Работа",
-        color: "#71dc79"
-    },
-    {
-        id: 3,
-        count: 31,
-        category: "Учёба",
-        color: "#f8ed56"
-    },
-]
 
 function Tasks() {
     const [activeCategory, setCategory] = useState(null);
     const [activeFilter, setFilter] = useState("all");
     return (
         <div className="todo">
-            <div className="todo__categories">
-                {categories.map(({ id, count, category, color }) => (
-                    <Category className="todo__category"
-                        key={id}
-                        count={count}
-                        category={category}
-                        color={color}
-                        onClick={() => setCategory(activeCategory === id ? null : id)}
-                        active={activeCategory === id} />
-                ))}
-            </div>
+
+            <Categories className="todo__categories"
+                activeCategory={activeCategory}
+                onClick={setCategory} />
+
             <Filter className="todo__filter"
                 activeFilter={activeFilter}
                 onClick={setFilter} />
+
             <div className="todo__input">
                 <input type="text" placeholder="placeholder" />
                 <button>+</button>
