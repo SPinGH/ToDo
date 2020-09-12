@@ -145,12 +145,18 @@ button {
   display: flex;
   background-color: #f3f3f3;
   height: 100%;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 }
 
 .main {
   flex: 1 1 auto;
   padding: 30px;
   min-height: 100vh;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 }
 
 @font-face {

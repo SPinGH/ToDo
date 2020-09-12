@@ -1,13 +1,12 @@
 .todo {
-    width: 45%;
-
+    max-width: 800px;
+    margin: 0 auto;
     // .todo__input
     &__input {
         border-top: 2px solid #ccc;
         display: flex;
         margin: 0px 0px 10px 0px;
         input {
-            font-family: "BalsamiqSans", Arial, serif;
             flex: 1 1 auto;
             background-color: transparent;
             border: none;
@@ -16,7 +15,6 @@
             outline: none;
         }
         button {
-            font-family: "BalsamiqSans", Arial, serif;
             flex: 0 0 38px;
             cursor: pointer;
             background-color: transparent;

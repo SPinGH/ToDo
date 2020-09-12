@@ -3,14 +3,44 @@
     padding: 30px 10px;
     background-color: #fff;
     box-shadow: 20px 0 30px #fff;
+    @media (max-width: 500px) {
+        padding: 10px;
+        order: 1;
+    }
 }
 .nav {
-    width: 100px;
+    @media (min-width: 768px) {
+        width: 100px;
+    }
+    @media (min-width: 500px) {
+        width: 75px;
+    }
+    @media (max-width: 500px) {
+        height: 70px;
+    }
+
     // .nav__links
     &__links {
-        width: 100px;
-        overflow: hidden;
+        //overflow: hidden;
+        z-index: 100;
         position: fixed;
+        @media (min-width: 768px) {
+            width: 100px;
+        }
+        @media (min-width: 500px) {
+            width: 75px;
+        }
+        @media (max-width: 500px) {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 20px 0 30px #fff;
+        }
     }
 
     // .nav__link
@@ -22,8 +52,20 @@
         transition-property: transform, color;
         transition-duration: 0.3s;
 
+        @media (min-width: 768px) {
+            font-size: 12px;
+            &:hover {
+                transform: translateX(5px);
+            }
+        }
+
         &.active {
-            transform: translateX(5px);
+            @media (max-width: 768px) {
+                transform: translateY(-5px);
+            }
+            @media (min-width: 768px) {
+                transform: translateX(5px);
+            }
             color: #333;
             .nav__img {
                 fill: #333;
@@ -31,10 +73,6 @@
             path {
                 stroke: #333;
             }
-        }
-
-        &:hover {
-            transform: translateX(5px);
         }
     }
 
