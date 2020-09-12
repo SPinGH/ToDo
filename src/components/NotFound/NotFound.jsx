@@ -34,7 +34,7 @@ function NotFound() {
   s25.3-11.3,25.3-25.3C125.3,29,115.9,18.5,103.8,16.7z"/>
                 </g>
             </svg>
-            <p className="notFound__message">O-o-oh! Something broke.</p>
+            <p className="notFound__message">О-о-ох! Что-то сломалось.</p>
         </div >
     );
 }

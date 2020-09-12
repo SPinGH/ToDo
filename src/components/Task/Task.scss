@@ -17,6 +17,24 @@
         height: 30px;
         border-radius: 50%;
         transition: opacity 0.3 ease;
+        cursor: pointer;
+        display: flex;
+        align-items: flex-end;
+        transition-property: opacity, transform;
+        transition-duration: 0.3s;
+
+        svg {
+            width: 50%;
+            padding: 0px 0px 5px 5px;
+            opacity: 0;
+        }
+
+        &:hover {
+            transform: scale(2.1);
+            svg {
+                opacity: 1;
+            }
+        }
     }
 
     &.completed {

@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import {
+    AddTask, DeleteTask, ChangeTask,
+    AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
+    ChangeActiveCategory, ChangeActiveFilter
+} from '../../actions/actionCreator';
 
 import './Tasks.scss';
 
@@ -7,65 +14,85 @@ import Filter from '../../components/Filter/Filter';
 import Input from '../../components/Input/Input';
 import TaskList from '../../components/TaskList/TaskList';
 
-const TASKS = [
-    {
-        id: 0,
-        text: "lorem ipsum dolor set.",
-        category: 0,
-        isCompleted: false,
-    },
-    {
-        id: 1,
-        text: "lorem ipsum dolor set.",
-        category: 0,
-        isCompleted: false,
-    },
-    {
-        id: 2,
-        text: "lorem ipsum dolor set.",
-        category: 1,
-        isCompleted: false,
-    },
-];
+function Tasks({
+    tasks, categories,
+    AddTask, DeleteTask, ChangeTask,
+    AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
+    ChangeActiveCategory, ChangeActiveFilter,
+    activeCategory, activeFilter
+}) {
+    let filteredTasks = activeCategory ? tasks.filter(task => task.category === activeCategory) : [...tasks];
+    filteredTasks = activeFilter === "all" ?
+        filteredTasks :
+        activeFilter === "active" ?
+            filteredTasks.filter(task => task.isCompleted === false) :
+            filteredTasks.filter(task => task.isCompleted === true);
+    const [value, setValue] = useState("");
+    const addTask = ({ key }) => {
+        const category = activeCategory ? activeCategory : 1;
+        if ((key === "Enter" || key === undefined) && value.length > 0) {
+            AddTask({
+                id: (new Date()).getTime(),
+                text: value,
+                category: category,
+                isCompleted: false
+            });
+            AddCountCategory(category);
+            setValue("");
+        }
+    };
+    const onDeleteCategory = (e, id) => {
+        e.stopPropagation();
+        ChangeActiveCategory(null);
+        DeleteCategory(id)
+    };
+    const handleInputChange = (e) => {
+        setValue(e.target.value);
+    };
 
-function Tasks() {
-    const [activeCategory, setCategory] = useState(null);
-    const [activeFilter, setFilter] = useState("all");
-    const [tasks, setTasks] = useState(TASKS);
-    const toggleTask = (id) => {
-        setTasks(
-            tasks.map((task) => {
-                if (task.id === id) {
-                    return { ...task, isCompleted: !task.isCompleted };
-                }
-                return task;
-            })
-        )
-
-    }
     return (
         <div className="todo">
 
-            <Categories className="todo__categories"
+            <Categories
+                categories={categories}
+                className="todo__categories"
                 activeCategory={activeCategory}
-                onClick={setCategory} />
+                onClick={ChangeActiveCategory}
+                onAddClick={AddCategory}
+                onDelClick={onDeleteCategory}
+                onChangeClick={ChangeCategory} />
 
             <Filter className="todo__filter"
                 activeFilter={activeFilter}
-                onClick={setFilter} />
+                onClick={ChangeActiveFilter} />
 
             <div className="todo__input">
-                <Input type="text" placeholder="placeholder" />
-                <button>+</button>
+                <Input value={value}
+                    onChange={handleInputChange}
+                    onKeyDown={addTask}
+                    type="text"
+                    placeholder="Добавить задачу ..." />
+                <button onClick={addTask}>+</button>
             </div>
 
             <TaskList
                 className="todo__list"
-                tasks={tasks}
-                onClick={toggleTask}
+                tasks={filteredTasks}
+                categories={categories}
+                onClick={ChangeTask}
+                onDelClick={(id, category) => { SubtractCountCategory(category); DeleteTask(id) }}
             />
         </div>
     )
 }
 
-export default Tasks;
+export default connect(({ tasks, categories, activeCategory, activeFilter }) => ({
+    tasks,
+    categories,
+    activeCategory,
+    activeFilter,
+}), {
+    AddTask, DeleteTask, ChangeTask,
+    AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
+    ChangeActiveCategory, ChangeActiveFilter
+})(Tasks);

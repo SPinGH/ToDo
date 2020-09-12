@@ -2,4 +2,28 @@
 .categories {
     margin: 0px 0px 20px 0px;
     display: flex;
+    overflow-x: auto;
+
+    &__add {
+        cursor: pointer;
+        flex: 0 0 20px;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 20px;
+        color: #ccc;
+        transition-property: color, background-color;
+        transition-duration: 0.3s;
+
+        span {
+            margin: 0 auto;
+        }
+
+        &:hover {
+            background-color: #ccc;
+            color: #fff;
+        }
+    }
 }

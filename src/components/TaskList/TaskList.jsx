@@ -6,7 +6,7 @@ import './TaskList.scss';
 
 import Task from '../../components/Task/Task';
 
-function TaskList({ className, tasks, onClick }) {
+function TaskList({ className, tasks, categories, onClick, onDelClick }) {
     const classes = classNames(
         "taskList",
         className,
@@ -18,9 +18,10 @@ function TaskList({ className, tasks, onClick }) {
                     key={id}
                     id={id}
                     text={text}
-                    color="red"
+                    category={categories.find(ctg => ctg.id === category)}
                     isCompleted={isCompleted}
-                    onClick={onClick} />
+                    onClick={onClick}
+                    onDelClick={onDelClick} />
             ))}
         </div>
     );
@@ -29,12 +30,14 @@ function TaskList({ className, tasks, onClick }) {
 TaskList.propTypes = {
     className: PropTypes.string,
     tasks: PropTypes.array,
+    categories: PropTypes.array,
     onClick: PropTypes.func,
 }
 
 TaskList.defaultProps = {
     className: "",
     tasks: [],
+    categories: [],
     onClick: () => { },
 }
 
