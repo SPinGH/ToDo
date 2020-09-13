@@ -1,0 +1,126 @@
+.week-statistic {
+    width: 45%;
+
+    // .week-statistic__header
+    &__header {
+    }
+
+    // .week-statistic__graph
+    &__graph {
+    }
+
+    // .week-statistic__inline
+    &__inline {
+    }
+}
+.ws-header {
+    position: relative;
+    padding: 10px;
+
+    // .ws-header__completed
+    &__completed {
+        text-transform: capitalize;
+        margin: 0px 0px 5px 0px;
+    }
+
+    // .ws-header__number
+    &__number {
+        font-size: 24px;
+    }
+
+    // .ws-header__graph
+    &__graph {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        svg {
+            transform: rotate(-90deg);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 30%;
+            right: 30%;
+            width: 40%;
+            height: 40%;
+            background-repeat: no-repeat;
+            background-image: url(../../assets/pic/list.svg);
+        }
+    }
+}
+.ws-graph {
+    padding: 10px;
+
+    // .ws-graph__graph
+    &__graph {
+    }
+
+    // .ws-graph__colnames
+    &__colnames {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .ws-graph__colname
+    &__colname {
+        color: #ccc;
+    }
+}
+.ws-inline {
+    padding: 10px;
+
+    // .ws-inline__graph
+    &__graph {
+    }
+
+    // .ws-inline__item
+    &__item {
+    }
+}
+.item-wsi {
+    margin: 0px 0px 10px 0px;
+    // .item-wsi__name
+    &__name {
+    }
+
+    // .item-wsi__content
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        height: 16px;
+    }
+
+    // .item-wsi__line
+    &__line {
+        position: relative;
+        flex: 1 1 auto;
+        span {
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            width: 67%;
+            height: 4px;
+            border-radius: 2px;
+            z-index: 2;
+            background-color: rgb(172, 71, 150);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            left: 0px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: #ccc;
+        }
+    }
+
+    // .item-wsi__value
+    &__value {
+        flex: 0 0 115px;
+        margin: 0px 0px 0px 10px;
+        white-space: nowrap;
+    }
+}
