@@ -13,13 +13,14 @@ function TaskList({ className, tasks, categories, onClick, onDelClick }) {
     )
     return (
         <div className={classes}>
-            {tasks.map(({ id, text, category, isCompleted }) => (
+            {tasks.map(({ id, text, category, isCompleted, time }) => (
                 <Task
                     key={id}
                     id={id}
                     text={text}
                     category={categories.find(ctg => ctg.id === category)}
                     isCompleted={isCompleted}
+                    time={time}
                     onClick={onClick}
                     onDelClick={onDelClick} />
             ))}

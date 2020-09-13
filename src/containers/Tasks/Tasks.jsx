@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import {
     AddTask, DeleteTask, ChangeTask,
     AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
-    ChangeActiveCategory, ChangeActiveFilter
+    ChangeActiveCategory, ChangeActiveFilter,
+    UpdateStat,
 } from '../../actions/actionCreator';
 
 import './Tasks.scss';
@@ -19,7 +20,8 @@ function Tasks({
     AddTask, DeleteTask, ChangeTask,
     AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
     ChangeActiveCategory, ChangeActiveFilter,
-    activeCategory, activeFilter
+    UpdateStat,
+    activeCategory, activeFilter,
 }) {
     let filteredTasks = activeCategory ? tasks.filter(task => task.category === activeCategory) : [...tasks];
     filteredTasks = activeFilter === "all" ?
@@ -80,7 +82,11 @@ function Tasks({
                 tasks={filteredTasks}
                 categories={categories}
                 onClick={ChangeTask}
-                onDelClick={(id, category) => { SubtractCountCategory(category); DeleteTask(id) }}
+                onDelClick={(id, category, time) => {
+                    SubtractCountCategory(category);
+                    UpdateStat(time)
+                    DeleteTask(id)
+                }}
             />
         </div>
     )
@@ -94,5 +100,6 @@ export default connect(({ tasks, categories, activeCategory, activeFilter }) => 
 }), {
     AddTask, DeleteTask, ChangeTask,
     AddCategory, DeleteCategory, ChangeCategory, AddCountCategory, SubtractCountCategory,
-    ChangeActiveCategory, ChangeActiveFilter
+    ChangeActiveCategory, ChangeActiveFilter,
+    UpdateStat,
 })(Tasks);

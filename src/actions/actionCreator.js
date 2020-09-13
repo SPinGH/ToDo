@@ -1,7 +1,8 @@
 import {
     ADD_TASK, DELETE_TASK, CHANGE_TASK,
     ADD_CATEGORY, DELETE_CATEGORY, CHANGE_CATEGORY, ADD_COUNT_CATEGORY, SUBTRACT_COUNT_CATEGORY,
-    CHANGE_ACTIVECATEGORY, CHANGE_ACTIVEFILTER
+    CHANGE_ACTIVECATEGORY, CHANGE_ACTIVEFILTER,
+    UPDATE_STAT
 } from "../constants";
 
 export const AddTask = ({ id, text, category, isCompleted }) => ({
@@ -64,4 +65,10 @@ export const ChangeActiveCategory = id => ({
 export const ChangeActiveFilter = id => ({
     type: CHANGE_ACTIVEFILTER,
     id,
+});
+
+
+export const UpdateStat = (time) => ({
+    type: UPDATE_STAT,
+    time
 });

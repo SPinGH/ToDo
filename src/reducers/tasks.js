@@ -25,7 +25,11 @@ const tasks = (state = TASKS.tasks, { id, type, text, category, isCompleted }) =
         case CHANGE_TASK:
             return [...state].map(task => {
                 if (task.id === id) {
-                    return { ...task, isCompleted: !task.isCompleted };
+                    if (task.isCompleted) {
+                        return { ...task, isCompleted: false, time: undefined };
+                    } else {
+                        return { ...task, isCompleted: true, time: (new Date()).getTime() };
+                    }
                 }
                 return task;
             });
