@@ -1,0 +1,15 @@
+.graph {
+    padding: 10px;
+
+    &__graph {
+    }
+
+    &__colnames {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__colname {
+        color: #ccc;
+    }
+}

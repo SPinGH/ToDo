@@ -154,6 +154,9 @@ button {
   flex: 1 1 auto;
   padding: 30px;
   min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   @media (max-width: 768px) {
     padding: 10px;
   }
