@@ -5,6 +5,9 @@
     bottom: 0px;
     svg {
         transform: rotate(-90deg);
+        circle {
+            transition: stroke-dashoffset 0.8s ease;
+        }
     }
     &::after {
         content: "";

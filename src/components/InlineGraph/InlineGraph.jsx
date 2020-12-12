@@ -9,12 +9,17 @@ function InlineGraph({ className, name, color, width, count }) {
         'inlineGraph',
         className,
     );
+    const LineRef = React.useRef();
+
+    React.useEffect(() => {
+        LineRef.current.style.width = width;
+    }, [width]);
 
     return (
         <div className={classes}>
             <div className="inlineGraph__name">{name}</div>
             <div className="inlineGraph__content">
-                <div className="inlineGraph__line"><span style={{ backgroundColor: color, width: width }}></span></div>
+                <div className="inlineGraph__line"><span ref={LineRef} style={{ backgroundColor: color, width: 0 }}></span></div>
                 <div className="inlineGraph__value">Выполнено: {count}</div>
             </div>
         </div>

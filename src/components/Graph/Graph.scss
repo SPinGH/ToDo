@@ -2,6 +2,12 @@
     padding: 10px;
 
     &__graph {
+        path {
+            transition: d 0.8s ease;
+        }
+        ellipse {
+            transition: cy 0.8s ease;
+        }
     }
 
     &__colnames {
@@ -11,5 +17,17 @@
 
     &__colname {
         color: #ccc;
+        @media (max-width: 1080px) {
+            font-size: 0.7em;
+        }
+        @media (max-width: 860px) {
+            font-size: 0.6em;
+        }
+        @media (max-width: 768px) {
+            font-size: 1em;
+        }
+        @media (max-width: 500px) {
+            font-size: 0.7em;
+        }
     }
 }
