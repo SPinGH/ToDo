@@ -15,6 +15,11 @@
     // .week-statistic__inline
     &__inline {
     }
+    @media (max-width: 500px) {
+        &:last-child {
+            margin: 0px 0px 75px 0px;
+        }
+    }
 }
 .ws-header {
     position: relative;

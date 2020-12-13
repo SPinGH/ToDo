@@ -47,6 +47,9 @@
     &__lastTasks {
     }
     &__firstTasks {
+        @media (max-width: 500px) {
+            margin: 0px 0px 75px 0px;
+        }
     }
     &__item {
         padding: 10px 0px;

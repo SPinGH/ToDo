@@ -15,7 +15,9 @@ function HomeStat({ className, dayOfLastTask, ComletedTasksCount, lastTasks, fir
         <div className={classes}>
             <div className="home__lastTask">
                 {dayOfLastTask > 0 ?
-                    `Вы ${dayOfLastTask} ${declOfNum(dayOfLastTask, ["день", "дня", "дней"])} не выполняли задач` :
+                    dayOfLastTask > 999 ?
+                        `Вы давно не выполняли задачи` :
+                        `Вы ${dayOfLastTask} ${declOfNum(dayOfLastTask, ["день", "дня", "дней"])} не выполняли задач` :
                     `Сегодня вы выполнили ${ComletedTasksCount} ${declOfNum(ComletedTasksCount, ["задачу", "задачи", "задач"])}`}
             </div>
             <div className="home__stat stat">

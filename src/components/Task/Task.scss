@@ -79,4 +79,9 @@
             transition: background-color 0.3 ease;
         }
     }
+    @media (max-width: 500px) {
+        &:last-child {
+            margin: 0px 0px 75px 0px;
+        }
+    }
 }
