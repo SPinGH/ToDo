@@ -37,6 +37,7 @@
     &__firstTasks {
         padding: 10px 12px;
         flex: 0 0 48%;
+        width: 48%;
         background-color: white;
         border-radius: 10px;
         @media (max-width: 768px) {
@@ -53,6 +54,7 @@
     }
     &__item {
         padding: 10px 0px;
+        overflow-wrap: break-word;
         &::before {
             content: "- ";
         }
