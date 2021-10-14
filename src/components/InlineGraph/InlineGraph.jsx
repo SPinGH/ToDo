@@ -9,6 +9,7 @@ function InlineGraph({ className, name, color, width, count }) {
         'inlineGraph',
         className,
     );
+
     const LineRef = React.useRef();
 
     React.useEffect(() => {
@@ -17,10 +18,10 @@ function InlineGraph({ className, name, color, width, count }) {
 
     return (
         <div className={classes}>
-            <div className="inlineGraph__name">{name}</div>
-            <div className="inlineGraph__content">
-                <div className="inlineGraph__line"><span ref={LineRef} style={{ backgroundColor: color, width: 0 }}></span></div>
-                <div className="inlineGraph__value">Выполнено: {count}</div>
+            <div className='inlineGraph__name'>{name}</div>
+            <div className='inlineGraph__content'>
+                <div className='inlineGraph__line'><span ref={LineRef} style={{ backgroundColor: color, width: 0 }}></span></div>
+                <div className='inlineGraph__value'>Выполнено: {count}</div>
             </div>
         </div>
     );
@@ -35,10 +36,10 @@ InlineGraph.propTypes = {
 }
 
 InlineGraph.defaultProps = {
-    className: "",
-    name: "",
-    color: "#ccc",
-    width: "0%",
+    className: '',
+    name: '',
+    color: '#cccccc',
+    width: '0%',
     count: 0,
 }
 

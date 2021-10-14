@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -12,9 +12,9 @@ function Input({ id, className, label, error, ...attrs }) {
     );
 
     return (
-        <Fragment>
+        <>
             {label
-                && <label className="input__label" htmlFor={id}>{label}</label>
+                && <label className='input__label' htmlFor={id}>{label}</label>
             }
             <input
                 name={id}
@@ -23,9 +23,9 @@ function Input({ id, className, label, error, ...attrs }) {
                 {...attrs}
             />
             {error
-                && <span className="input__error">{error}</span>
+                && <span className='input__error'>{error}</span>
             }
-        </Fragment>
+        </>
     );
 };
 
@@ -37,10 +37,10 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-    className: "",
-    id: "",
-    label: "",
-    error: "",
+    className: '',
+    id: '',
+    label: '',
+    error: '',
 }
 
 export default Input;

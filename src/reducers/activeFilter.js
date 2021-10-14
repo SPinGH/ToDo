@@ -1,6 +1,7 @@
-import { CHANGE_ACTIVEFILTER } from '../constants';
+import { ActionTypes } from '../constants';
+const { CHANGE_ACTIVEFILTER } = ActionTypes;
 
-const activeFilter = (state = "all", { id, type }) => {
+const activeFilter = (state = 'all', { id, type }) => {
     switch (type) {
         case CHANGE_ACTIVEFILTER:
             return state !== id ? id : state;

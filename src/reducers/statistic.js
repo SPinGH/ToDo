@@ -1,5 +1,6 @@
-import { UPDATE_STAT } from '../constants';
+import { ActionTypes } from '../constants';
 import { load } from 'redux-localstorage-simple';
+const { UPDATE_STAT } = ActionTypes;
 
 let STAT = load({ namespace: 'todo' });
 
@@ -8,8 +9,8 @@ if (!STAT || !STAT.statistic) {
         statistic: {
             allTime: 0,
             lastUpdate: (new Date()).toDateString(),
-            year: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            week: [0, 0, 0, 0, 0, 0, 0]
+            year: new Array(12).fill(0),
+            week: new Array(7).fill(0)
         },
     }
 }
@@ -18,7 +19,7 @@ function getDay(date) {
     return date.getDay() - 1 === -1 ? 6 : date.getDay() - 1;
 }
 
-const stat = (state = STAT.statistic, { type, time }) => {
+const statistic = (state = STAT.statistic, { type, time }) => {
     switch (type) {
         case UPDATE_STAT: {
             const TIME = time ? new Date(time) : new Date();
@@ -46,4 +47,4 @@ const stat = (state = STAT.statistic, { type, time }) => {
     }
 }
 
-export default stat;
+export default statistic;

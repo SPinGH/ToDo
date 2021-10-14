@@ -2,15 +2,19 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import Category from '../Category/Category';
+
 import './Categories.scss';
 
-import Category from '../Category/Category';
 
 function Categories({ className, categories, activeCategory, onClick, onAddClick, onDelClick, onChangeClick }) {
     const classes = classNames(
-        "categories",
+        'categories',
         className
-    )
+    );
+
+    const handleClickAdd = () => onAddClick((new Date()).getTime());
+
     return (
         <div className={classes}>
             {categories.map(({ id, count, name, color }) => (
@@ -20,12 +24,12 @@ function Categories({ className, categories, activeCategory, onClick, onAddClick
                     count={count}
                     name={name}
                     color={color}
-                    onClick={() => onClick(id)}
+                    onClick={onClick}
                     active={activeCategory === id}
                     onDelClick={onDelClick}
                     onChangeClick={onChangeClick} />
             ))}
-            <div className="categories__add" onClick={() => onAddClick((new Date()).getTime())}><span>+</span></div>
+            <div className='categories__add' onClick={handleClickAdd}><span>+</span></div>
         </div>
     );
 }
@@ -38,7 +42,7 @@ Categories.propTypes = {
 }
 
 Categories.defaultProps = {
-    className: "",
+    className: '',
     categories: [],
     activeCategory: null,
     onClick: () => { },

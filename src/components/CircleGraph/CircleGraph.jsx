@@ -6,22 +6,24 @@ import './CircleGraph.scss';
 
 function CircleGraph({ className, procent }) {
     const classes = classNames(
-        "circleGraph",
+        'circleGraph',
         className,
-    )
+    );
+
     const LineRef = React.useRef();
 
     React.useEffect(() => {
-        LineRef.current.setAttribute("stroke-dashoffset", 100 - procent)
+        LineRef.current.setAttribute('stroke-dashoffset', 100 - procent)
     }, [procent]);
+
     return (
         <div className={classes}>
-            <svg width="98px" height="98px" viewBox="0 0 42 42">
-                <circle cx="21" cy="21" r="15.91549430918954" fill="#f3f3f3"></circle>
-                <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ccc" strokeWidth="3">
+            <svg width='98px' height='98px' viewBox='0 0 42 42'>
+                <circle cx='21' cy='21' r='16' fill='#f3f3f3'></circle>
+                <circle cx='21' cy='21' r='16' fill='transparent' stroke='#ccc' strokeWidth='3'>
                 </circle>
-                <circle ref={LineRef} cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#4BD7C3"
-                    strokeWidth="3" strokeDasharray="100" strokeDashoffset={100}></circle>
+                <circle ref={LineRef} cx='21' cy='21' r='16' fill='transparent' stroke='#4BD7C3'
+                    strokeWidth='3' strokeDasharray='100' strokeDashoffset={100}></circle>
             </svg>
         </div>
     );
@@ -33,7 +35,7 @@ CircleGraph.propTypes = {
 }
 
 CircleGraph.defaultProps = {
-    className: "",
+    className: '',
     procent: 0,
 }
 

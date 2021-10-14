@@ -17,20 +17,21 @@ const Buttons = [
         id: 'active',
         text: 'Активные'
     },
-]
+];
 
 function Filter({ className, activeFilter, onClick }) {
     const classes = classNames(
-        "filter",
+        'filter',
         className,
-    )
+    );
+
     return (
         <div className={classes}>
-            {Buttons.map((btn) => (
+            {Buttons.map(({ id, text }) => (
                 <button
-                    className={`filter__item ${activeFilter === btn.id ? "active" : ""}`}
-                    key={btn.id}
-                    onClick={() => onClick(btn.id)}>{btn.text}</button>
+                    className={`filter__item ${activeFilter === id ? 'active' : ''}`}
+                    key={id}
+                    onClick={() => onClick(id)}>{text}</button>
             ))}
         </div>
     );
@@ -43,8 +44,8 @@ Filter.propTypes = {
 }
 
 Filter.defaultProps = {
-    className: "",
-    activeFilter: "all",
+    className: '',
+    activeFilter: 'all',
     onClick: () => { },
 }
 

@@ -1,20 +1,17 @@
-import { ADD_CATEGORY, DELETE_CATEGORY, CHANGE_CATEGORY, ADD_COUNT_CATEGORY, SUBTRACT_COUNT_CATEGORY } from '../constants';
+import { ActionTypes } from '../constants';
 import { load } from 'redux-localstorage-simple';
+const { ADD_CATEGORY, DELETE_CATEGORY, CHANGE_CATEGORY, ADD_COUNT_CATEGORY, SUBTRACT_COUNT_CATEGORY } = ActionTypes;
 
 let CATEGORIES = load({ namespace: 'todo' });
 
-const ctg = [
-    {
-        id: 1,
-        count: 0,
-        name: "Разное",
-        color: "#e5768c"
-    }
-];
-
 if (!CATEGORIES || !CATEGORIES.categories || !CATEGORIES.categories.length) {
     CATEGORIES = {
-        categories: ctg,
+        categories: [{
+            id: 1,
+            count: 0,
+            name: 'Разное',
+            color: '#e5768c'
+        }]
     }
 }
 

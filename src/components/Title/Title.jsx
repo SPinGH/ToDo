@@ -21,8 +21,8 @@ Title.propTypes = {
 }
 
 Title.defaultProps = {
-    className: "",
-    text: "",
+    className: '',
+    text: '',
 }
 
 export default Title;

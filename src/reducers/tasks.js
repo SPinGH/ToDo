@@ -1,5 +1,6 @@
-import { ADD_TASK, DELETE_TASK, CHANGE_TASK } from '../constants';
+import { ActionTypes } from '../constants';
 import { load } from 'redux-localstorage-simple';
+const { ADD_TASK, DELETE_TASK, CHANGE_TASK } = ActionTypes;
 
 let TASKS = load({ namespace: 'todo' });
 

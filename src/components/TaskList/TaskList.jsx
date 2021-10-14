@@ -2,15 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import './TaskList.scss';
-
 import Task from '../../components/Task/Task';
+
+import './TaskList.scss';
 
 function TaskList({ className, tasks, categories, onClick, onDelClick }) {
     const classes = classNames(
-        "taskList",
+        'taskList',
         className,
-    )
+    );
+
     return (
         <div className={classes}>
             {tasks.map(({ id, text, category, isCompleted, time }) => (
@@ -36,7 +37,7 @@ TaskList.propTypes = {
 }
 
 TaskList.defaultProps = {
-    className: "",
+    className: '',
     tasks: [],
     categories: [],
     onClick: () => { },
